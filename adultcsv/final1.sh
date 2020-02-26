@@ -31,14 +31,14 @@ do
          fi
  done
 cf=`echo "$cf+$count"|bc`
-x=`scale=4;echo "($start + $i - 1) / 2"|bc`
-cx=`echo "$cx + x"|bc`
-fx=`echo "scale=4; $x * $count "|bc `
-cfx=`echo "$cfx+$fx"|bc`
-x2=`echo "$x^2"|bc`
-cx2=`echo "$x2+$cx2"|bc`
-fx2=`echo "$count*$x2"|bc`
-cfx2=`echo "$cfx2+$fx2"|bc`
+x=`echo "scale=4;($start + $i - 1) / 2"|bc`
+cx=`echo "scale=4;$cx + x"|bc`
+fx=`echo "scale=4; $x * $count "|bc`
+cfx=`echo "scale=4;$cfx+$fx"|bc`
+x2=`echo "scale=4;$x^2"|bc`
+cx2=`echo "scale=4;$x2+$cx2"|bc`
+fx2=`echo "scale=4;$count*$x2"|bc`
+cfx2=`echo "scale=4;$cfx2+$fx2"|bc`
 echo "[$start - $i) -> $count -> $cf ->$x -> $cfx -> $x2 -> $fx2"
 start=$i
 done
@@ -52,15 +52,15 @@ then
                     count=`echo "$count + 1"|bc`
            fi
    done
-cf=`echo "$cf+$count"|bc`
-x=`scale=4;echo " ( $i + $max )/2"|bc`
-cx=`echo "$cx + x"|bc`
+cf=`echo "scale=4;$cf+$count"|bc`
+x=`echo "scale=4;( $i + $max )/2"|bc`
+cx=`echo "scale=4;$cx + x"|bc`
 fx=`echo "scale=4;$x * $count"|bc`
-cfx=`echo "$cfx+$fx"|bc`
-x2=`echo "$x^2"|bc`
-cx2=`echo "$x2+$cx2"|bc`
-fx2=`echo "$count*$x2"|bc`
-cfx2=`echo "$cfx2+$fx2"|bc`
+cfx=`echo "scale=4;$cfx+$fx"|bc`
+x2=`echo "scale=4;$x^2"|bc`
+cx2=`echo "scale=4;$x2+$cx2"|bc`
+fx2=`echo "scale=4;$count*$x2"|bc`
+cfx2=`echo "scale=4;$cfx2+$fx2"|bc`
 echo "[$i - $max] -> $count -> $cf -> $x ->$cfx -> $x2 -> $fx2"
 fi
 
@@ -71,5 +71,5 @@ echo "sum of fx^2 is $cfx2"
 
 echo "--------------------------------------------------"
 
-mean=`echo "$cfx2/$cfx"|bc -l`
+mean=`echo "scale=4;$cfx2/$cfx"|bc`
 echo "The mean is $mean"
