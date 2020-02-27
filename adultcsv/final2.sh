@@ -1,4 +1,5 @@
 fname=adult.csv
+temp=temp.csv
 max=`cat $fname|grep '^[0-9]'|cut -d ',' -f 1|sort -nr|head -n 1`
 min=`cat $fname|grep '^[0-9]'|cut -d ',' -f 1|sort -n|head -n 1`
 nrecord=`cat $fname|grep '^[0-9]'|wc -l`
@@ -7,7 +8,7 @@ echo "The Total number of records are $nrecord"
 echo "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~"
 echo "Enter the sample size"
 read sampleSize
-
+cat $fname|grep '^[0-9]'|shuf -n $sampleSize>$temp
 x=0
 x2=0
 fx=0
@@ -31,7 +32,7 @@ echo "Class Interval -> Frequency -> Cummulative Frequency -> MidPoint -> CFreq*
 for i in `seq $start1 $ci $max`
 do
   count=0
-  for j in `cat $fname|shuf -n $sampleSize|grep '^[0-9]'|cut -d ',' -f 1`
+  for j in `cat $temp|cut -d ',' -f 1`
           do
           if [ $j -ge $start ] && [ $j -lt $i ]
           then
@@ -53,7 +54,7 @@ done
 if [ $i -lt $max ]
 then
   count=0
-    for k in `cat $fname|shuf -n $sampleSize|grep '^[0-9]'|cut -d ',' -f 1`
+    for k in `cat $temp|cut -d ',' -f 1`
             do
             if [ $k -ge $i ] && [ $k -le $max ]
             then
@@ -93,3 +94,4 @@ sd=`echo "scale=4;sqrt($variance)"|bc`
 echo "The sd is $sd"
 
 echo "--------------------------------------------------"
+rm $temp
