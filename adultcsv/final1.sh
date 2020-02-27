@@ -1,5 +1,6 @@
-max=`cat adult.csv|grep '^[0-9]'|cut -d ',' -f 1|sort -nr|head -n 1`
-min=`cat adult.csv|grep '^[0-9]'|cut -d ',' -f 1|sort -n|head -n 1`
+fname=adult.csv
+max=`cat $fname|grep '^[0-9]'|cut -d ',' -f 1|sort -nr|head -n 1`
+min=`cat $fname|grep '^[0-9]'|cut -d ',' -f 1|sort -n|head -n 1`
 x=0
 x2=0
 fx=0
@@ -23,7 +24,7 @@ echo "Class Interval -> Frequency -> Cummulative Frequency -> MidPoint -> CFreq*
 for i in `seq $start1 $ci $max`
 do
   count=0
-  for j in `cat adult.csv|grep '^[0-9]'|cut -d ',' -f 1`
+  for j in `cat $fname|grep '^[0-9]'|cut -d ',' -f 1`
           do
           if [ $j -ge $start ] && [ $j -lt $i ]
           then
@@ -45,7 +46,7 @@ done
 if [ $i -lt $max ]
 then
   count=0
-    for k in `cat adult.csv|grep '^[0-9]'|cut -d ',' -f 1`
+    for k in `cat $fname|grep '^[0-9]'|cut -d ',' -f 1`
             do
             if [ $k -ge $i ] && [ $k -le $max ]
             then
