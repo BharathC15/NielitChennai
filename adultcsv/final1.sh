@@ -72,7 +72,7 @@ echo "sum of fx^2 is $cfx2"
 
 echo "--------------------------------------------------"
 
-mean=`echo "scale=4;$cfx2/$cfx"|bc`
+mean=`echo "scale=4;$cfx/$cf"|bc`
 echo "The mean is $mean"
 
 echo "--------------------------------------------------"
