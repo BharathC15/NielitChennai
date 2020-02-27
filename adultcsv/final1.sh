@@ -74,3 +74,15 @@ echo "--------------------------------------------------"
 
 mean=`echo "scale=4;$cfx2/$cfx"|bc`
 echo "The mean is $mean"
+
+echo "--------------------------------------------------"
+
+variance=`echo "scale=4;($cfx2/$cf)-($cfx/$cf)^2"|bc`
+echo "The variance is $variance"
+
+echo "--------------------------------------------------"
+
+sd=`echo "scale=4;sqrt($variance)"|bc`
+echo "The sd is $sd"
+
+echo "--------------------------------------------------"
