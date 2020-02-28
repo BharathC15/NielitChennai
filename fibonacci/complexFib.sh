@@ -5,13 +5,13 @@ c=0
 sum=0
 echo "Enter the largest term"
 read n
-while [ $(echo "$a+$b" | bc) -le $n ]
+while [ `echo "$a+$b" | bc` -le $n ]
 do
-    c=$(echo "$a+$b" | bc)
+    c=`echo "$a+$b" | bc`
     echo "$c"
-    if [ $(echo "$c % 2" | bc) -eq 0 ]
+    if [ `echo "$c % 2" | bc` -eq 0 ]
     then
-        sum=$(echo "$sum + $c" | bc)
+        sum=`echo "$sum + $c" | bc`
     fi
     a=$b
     b=$c
