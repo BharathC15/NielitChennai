@@ -1,12 +1,11 @@
 rawdf<-read.csv("ftp://192.168.1.15/bigdata/BigDataSet/COVID/2019_nCoV_data.csv")
 head(rawdf)
 df<-rawdf[c(4,6,7,8)]
-head(df)
 dfm<-melt(data=df,id.vars = c(1),measure.vars = c(2,3,4))
-head(dfm)
-final<-cast(dfm,formula = Country~variable,sum)
-head(final)
+final<-data.frame(cast(dfm,formula = Country~variable,sum))
 row.names(final)<-final$Country
-final$Country<-NA
 final1 <- subset(final, select = c(2,3,4))
-head(final1)
+table(final$Country,final$Deaths)
+bha<-final1[order(desc(final1$Confirmed)),]
+bha<-bha[1:6,]
+barplot(t(bha),beside = TRUE,col = c("Red","Blue","Green"),legend=TRUE)
