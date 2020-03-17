@@ -1,6 +1,5 @@
 import numpy as np
-trials=100000
-print(np.random.randint(2,size=6))
+trials=1000000
 found=0
 for i in np.arange(trials):
     n=np.sum(np.random.randint(2,size=6))
