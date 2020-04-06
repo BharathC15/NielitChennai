@@ -1,1 +1,17 @@
 https://www.kaggle.com/datasnaek/chess
+Game ID;
+Rated (T/F);
+Start Time;
+End Time;
+Number of Turns;
+Game Status;
+Winner;
+Time Increment;
+White Player ID;
+White Player Rating;
+Black Player ID;
+Black Player Rating;
+All Moves in Standard Chess Notation;
+Opening Eco (Standardised Code for any given opening, list here);
+Opening Name;
+Opening Ply (Number of moves in the opening phase)
