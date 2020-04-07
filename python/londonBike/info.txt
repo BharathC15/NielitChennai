@@ -1,0 +1,12 @@
+https://www.kaggle.com/hmavrodiev/london-bike-sharing-dataset
+
+timestamp timestamp
+cnt number
+t1 temperature
+t2 temperature_feels
+hum humidity%
+wind_speed km/h
+weather_code code
+is_holiday boolean
+is_weekend boolean
+season season_code
