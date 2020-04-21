@@ -5,8 +5,8 @@
 principle=float(input("Enter the Principal value :"))
 years=float(input("Enter the number of years:"))
 rate=float(input("Enter the annual rate of Interest:"))
-SimpleI=(principle*years*rate)/100
-CompoundI=principle*(1+rate/100)**years
+SimpleI=format((principle*years*rate)/100,'.4f')
+CompoundI=format(principle*(1+rate/100)**years,'.4f')
 
 print("Simple Interest={},Amount={}".format(SimpleI,principle+SimpleI))
 print("Compound Interest={},Amount={}".format(CompoundI,principle+CompoundI))

@@ -15,7 +15,7 @@ b=1.832
 c=a-b
 print("{} - {} = {}".format(a,b,c))
 
-#Strign Formatting
+#String Formatting
 print(format(c, '.3g'))  # give 3 significant digits)
 print(format(c, '.2f'))  # give 2 digits after the point
 print(repr(c)) #Higher Precise value. Choose the one with 17 significant digits
