@@ -29,4 +29,4 @@ x=input("Enter a State name :")
 if dict_corona.get(x):
     print("The {} state has {} infected people".format(x,dict_corona.get(x)))
 else:
-    print("The {} state is not the database")
+    print("The {} state is not in the database".format(x))
