@@ -43,6 +43,9 @@ print("Expected Frequency:",expected_f)
 from scipy.stats import chisquare
 chistatistics,pvalue=chisquare(f_obs=observed_f,f_exp=expected_f)
 
+print("Chi statistics:",chistatistics)
+print("P value:",pvalue)
+
 if pvalue<0.05:
     print("Reject the Null hypothesis")
     print("Proportion of Beans are not in the given ratio")
